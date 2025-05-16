@@ -64,6 +64,7 @@ void loop()
     {
         angleInput = 0;
     }
+
     else
     {
         angleInput = atan((float)posX / (float)posY) * 180 / PI;
@@ -86,10 +87,10 @@ void loop()
         int8_t x = forceOutput * sin(angleInput * PI / 180);
         int8_t y = forceOutput * cos(angleOutput * PI / 180);
 
-        powerWheelFrontLeft = y - x;
-        powerWheelFrontRight = y + x;
-        powerWheelBackLeft = y + x;
-        powerWheelBackRight = y - x;
+        powerWheelFrontLeft = y + x;
+        powerWheelFrontRight = y - x;
+        powerWheelBackLeft = y - x;
+        powerWheelBackRight = y + x;
 
         Serial.println("powerWheelFrontLeft: " + String(powerWheelFrontLeft));
         Serial.println("powerWheelFrontRight: " + String(powerWheelFrontRight));
